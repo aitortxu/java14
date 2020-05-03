@@ -4,6 +4,16 @@ repositories {
     mavenCentral()
 }
 
+sourceCompatibility = JavaVersion.VERSION_14
+targetCompatibility = JavaVersion.VERSION_14
+
+compileJava {
+    options.compilerArgs += ["--enable-preview"]
+}
+compileTestJava {
+    options.compilerArgs += ["--enable-preview"]
+}
+
 dependencies {
     testImplementation('org.junit.jupiter:junit-jupiter-api:5.4.2')
     testImplementation ('org.hamcrest:hamcrest-library:1.3')
@@ -14,6 +24,7 @@ dependencies {
 }
 
 test {
+    jvmArgs '--enable-preview'
     useJUnitPlatform()
     testLogging {
         showStandardStreams = true
